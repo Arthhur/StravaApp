@@ -10,7 +10,7 @@ export class StravaService {
   clientId = environment.clientId;
   clientSecret = environment.clientSecret;
   token = environment.token;
-  redirectUrl = 'http://localhost/';
+  redirectUrl = 'https://strava-app.netlify.app/';
 
   // tslint:disable-next-line:max-line-length
   authorizeUrl = `https://www.strava.com/oauth/authorize?client_id=${this.clientId}&response_type=code&redirect_uri=${this.redirectUrl}&approval_prompt=force&scope=read`;
