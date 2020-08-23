@@ -1,0 +1,65 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="table"
+>
+
+  <!-- Nom Column -->
+  <ng-container matColumnDef="Nom">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let activity">{{activity.name}}</td>
+  </ng-container>
+
+  <!-- Temps Column -->
+  <ng-container matColumnDef="Temps">
+    <th mat-header-cell *matHeaderCellDef>Temps</th>
+    <td mat-cell *matCellDef="let activity">{{activity.moving_time | temps}}</td>
+  </ng-container>
+
+  <!-- Sport Column -->
+  <ng-container matColumnDef="Sport">
+    <th mat-header-cell *matHeaderCellDef>Sport</th>
+    <td mat-cell *matCellDef="let activity">{{activity.type}}</td>
+  </ng-container>
+
+  <!-- Distance Column -->
+  <ng-container matColumnDef="Distance (km)">
+    <th mat-header-cell *matHeaderCellDef>Distance (km)</th>
+    <td mat-cell *matCellDef="let activity">{{activity.distance | distance}}</td>
+  </ng-container>
+
+  <!-- Vitesse moy Column -->
+  <ng-container matColumnDef="Vitesse moy. (km/h)">
+    <th mat-header-cell *matHeaderCellDef>Vitesse moy. (km/h)</th>
+    <td mat-cell *matCellDef="let activity">{{activity.average_speed | vitesse}}</td>
+  </ng-container>
+
+  <!-- Vitesse max Column -->
+  <ng-container matColumnDef="Vitesse max. (km/h)">
+    <th mat-header-cell *matHeaderCellDef>Vitesse max. (km/h)</th>
+    <td mat-cell *matCellDef="let activity">{{activity.max_speed | vitesse}}</td>
+  </ng-container>
+
+  <!-- FC moy Column -->
+  <ng-container matColumnDef="FC moy. (bpm)">
+    <th mat-header-cell *matHeaderCellDef>FC moy. (bpm)</th>
+    <td mat-cell *matCellDef="let activity">{{activity.average_heartrate}}</td>
+  </ng-container>
+
+  <!-- FC max Column -->
+  <ng-container matColumnDef="FC max. (bpm)">
+    <th mat-header-cell *matHeaderCellDef>FC max. (bpm)</th>
+    <td mat-cell *matCellDef="let activity">{{activity.max_heartrate}}</td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="Date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let activity">{{activity.start_date_local | date:'short'}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let activity; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 40, 50, 100, 200, 500]" showFirstLastButtons></mat-paginator>

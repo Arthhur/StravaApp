@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="flex-container">
+    <div class="card" style="width: 18rem;">
+      <img
+        class="card-img-top"
+        [src]="athlete?.avatar"
+        alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{athlete?.firstname}} {{athlete?.lastname}}</h5>
+        <p class="card-text">{{athlete?.country}}</p>
+        <p class="card-text">{{athlete?.city}}</p>
+      </div>
+    </div>
+    <app-table-activities [activities]="activities"></app-table-activities>
+   <!--
+    <table class="table table-stripped">
+      <tr>
+        <th>Nom</th>
+        <th>Sport</th>
+        <th>Distance (km)</th>
+        <th>Vitesse moy. (km/h)</th>
+        <th>Vitesse max. (km/h)</th>
+        <th>FC moy. (bpm)</th>
+        <th>FC max. (bpm)</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let activity of activities">
+        <td>{{activity.name}}</td>
+        <td>{{activity.type}}</td>
+        <td>{{activity.distance | distance}}</td>
+        <td>{{activity.average_speed | vitesse}}</td>
+        <td>{{activity.max_speed | vitesse}}</td>
+        <td>{{activity.average_heartrate}}</td>
+        <td>{{activity.max_heartrate}}</td>
+        <td>{{activity.start_date_local | date:'short'}}</td>
+      </tr>
+    </table>
+  -->
+  </div>
+
+  <ngx-charts-bar-vertical
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="activitiesGraph"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
+</div>
+
