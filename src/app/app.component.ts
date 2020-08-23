@@ -14,7 +14,7 @@ export class AppComponent {
 
   redirectToLoginStrava() {
       // tslint:disable-next-line:max-line-length
-    window.location.href = 'https://www.strava.com/oauth/authorize?client_id=25072&response_type=code&redirect_uri=http://localhost:4200/athlete&approval_prompt=force&scope=activity:read';
+    window.location.href = 'https://www.strava.com/oauth/authorize?client_id=25072&response_type=code&redirect_uri=https://strava-app.netlify.app/athlete&approval_prompt=force&scope=activity:read';
   }
 
 }
